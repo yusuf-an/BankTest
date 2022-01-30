@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Upload File</title>
+
+<!--Bootstrap 4-->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+
+	<div class="container py-5">
+		<div class="row">
+			<div class="col-6 mx-auto">
+				<h1>Convert Temperature</h1>
+				<form method="POST" th:action="@{/calculator}"
+					th:object="${calculator}">
+
+					<div class="col-md-6 form-group">
+						<label>Value</label> <input type="number" class="form-control"
+							th:field="*{value}">
+					</div>
+					<div class="col-md-6 form-group">
+						<label>From</label> <select class="form-control"
+							th:field="*{from}">
+							<option value="Celsius">Celsius
+							</option>
+							<option value="Fahrenheit">Fahrenheit</option>
+						</select>
+					</div>
+
+					<div class="col-md-6 form-group">
+						<label>To</label> <select class="form-control"
+							th:field="*{to}">
+							<option value="Fahrenheit">Fahrenheit
+							</option>
+							<option value="Celsius">Celsius</option>
+						</select>
+					</div>
+
+					<button type="submit" class="btn btn-primary">Convert</button>
+				</form>
+				<div class="col-md-6 form-group">
+					<p><strong>Calculated:</strong> <span th:text="${calculator.calculated}"></span></p>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
